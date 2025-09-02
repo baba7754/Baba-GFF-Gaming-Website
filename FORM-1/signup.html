@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | BABA E-SPORTS</title>
+    <link rel="stylesheet" href="signup.css">
+    <link rel="shortcut icon" href="../logo.png" type="image/x-icon">
+    <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #d71147 0%, #2294ed 100%) fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+        }
+        .signup-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(20, 20, 40, 0.75);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s cubic-bezier(.77,0,.18,1);
+        }
+        .signup-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .signup-container {
+            background: rgba(0,0,0,0.92);
+            border-radius: 22px;
+            box-shadow: 0 8px 32px 0 #2294ed44, 0 2px 16px 0 #d7114744;
+            padding: 48px 36px 36px 36px;
+            max-width: 420px;
+            width: 95vw;
+            color: #fff;
+            position: fixed;
+            left: 50%; top: 50%;
+            transform: translate(-50%, -50%) scale(0.85);
+            opacity: 0;
+            transition: opacity 0.5s cubic-bezier(.77,0,.18,1), transform 0.5s cubic-bezier(.77,0,.18,1);
+            z-index: 1100;
+        }
+        .signup-container.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            animation: signupPopIn 0.6s cubic-bezier(.77,0,.18,1);
+        }
+        @keyframes signupPopIn {
+            0% { opacity: 0; transform: translate(-50%, -60%) scale(0.7); }
+            80% { opacity: 1; transform: translate(-50%, -52%) scale(1.05); }
+            100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+        .signup-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 28px;
+            letter-spacing: 1.5px;
+            text-shadow: 2px 2px 8px #00000055;
+            background: linear-gradient(90deg, #ffd700 30%, #2294ed 70%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .signup-input {
+            width: 100%;
+            padding: 13px 16px;
+            border-radius: 10px;
+            border: 1.5px solid #d71147;
+            background: rgba(255,255,255,0.10);
+            color: #fff;
+            font-size: 1.08rem;
+            transition: border 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+        .signup-input:focus {
+            border: 2px solid #ffd700;
+            box-shadow: 0 0 8px #ffd70055;
+            background: rgba(255,255,255,0.18);
+        }
+        .signup-btn {
+            width: 100%;
+            padding: 15px 0;
+            border-radius: 30px;
+            border: none;
+            background: linear-gradient(90deg, #2294ed 60%, #d71147 100%);
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 16px 0 #2294ed44;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .signup-btn:hover {
+            background: linear-gradient(90deg, #d71147 60%, #2294ed 100%);
+            color: #ffd700;
+            transform: translateY(-2px) scale(1.04);
+        }
+        .signup-links {
+            margin-top: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+        .signup-links a {
+            color: #ffd700;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 1rem;
+        }
+        .signup-links a:hover {
+            color: #2294ed;
+            text-decoration: underline;
+        }
+        .signup-info {
+            margin-top: 18px;
+            color: #ffd700;
+            font-size: 1.08rem;
+            text-align: center;
+            background: rgba(215,17,71,0.10);
+            border-radius: 10px;
+            padding: 12px 8px;
+            box-shadow: 0 2px 8px #d7114744;
+        }
+        .signup-info a {
+            color: #2294ed;
+            text-decoration: underline;
+        }
+        .signup-contact-choice {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0px;
+            margin-top: 2px;
+        }
+        .signup-contact-choice label {
+            color: #ffd700;
+            font-weight: 500;
+            margin-right: 8px;
+            font-size: 1.08rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .signup-radio {
+            accent-color: #2294ed;
+            margin-right: 4px;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+        .signup-contact-choice label:hover {
+            color: #2294ed;
+        }
+        .signup-input[type="tel"]::-webkit-input-placeholder {
+            color: #bbb;
+        }
+        .signup-input[type="tel"]::-moz-placeholder {
+            color: #bbb;
+        }
+        .signup-input[type="tel"]:-ms-input-placeholder {
+            color: #bbb;
+        }
+        .signup-input[type="tel"]::placeholder {
+            color: #bbb;
+        }
+        @media (max-width: 600px) {
+            .signup-container {
+                width: 98vw;
+                padding: 18px 2vw 18px 2vw;
+            }
+            .signup-title {
+                font-size: 1.3rem;
+            }
+            .signup-input {
+                font-size: 0.98rem;
+                padding: 10px 10px;
+            }
+            .signup-btn {
+                font-size: 1rem;
+                padding: 12px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-overlay" id="signupOverlay"></div>
+    <div class="signup-container" id="signupContainer">
+        <div class="signup-title">Create Your <span style="color:#D71147;">BABA <span style="color:yellow;">E-SPORTS</span></span> Account</div>
+        <form class="signup-form" id="signupForm" autocomplete="off">
+            <input class="signup-input" type="number" id="signup-uid" placeholder="Free Fire UID No" required autofocus>
+            <div class="signup-contact-choice">
+                <input class="signup-radio" type="radio" name="contactType" id="contactEmail" value="email" checked>
+                <label for="contactEmail">Email</label>
+                <input class="signup-radio" type="radio" name="contactType" id="contactPhone" value="phone">
+                <label for="contactPhone">Phone</label>
+            </div>
+            <input class="signup-input" type="email" id="signup-email" placeholder="Email" style="display:block;" required>
+            <input class="signup-input" type="tel" id="signup-phone" placeholder="Phone (10 digits)" pattern="[0-9]{10}" style="display:none;">
+            <input class="signup-input" type="password" id="signup-password" placeholder="Password" required>
+            <input class="signup-input" type="password" id="signup-confirm" placeholder="Confirm Password" required>
+            <button class="signup-btn" type="submit">SIGN UP</button>
+        </form>
+        <div class="signup-links">
+            <a href="signin.html">Already have an account? <b style='color:#2294ed;'>Sign In</b></a>
+            <a href="../Home.html">&larr; Back to Home</a>
+        </div>
+        <div class="signup-info" id="signupInfo" style="display:none;"></div>
+    </div>
+    <script>
+    // Show/hide email or phone input based on radio selection
+    const emailInput = document.getElementById('signup-email');
+    const phoneInput = document.getElementById('signup-phone');
+    document.getElementById('contactEmail').addEventListener('change', function() {
+        if(this.checked) {
+            emailInput.style.display = 'block';
+            emailInput.required = true;
+            phoneInput.style.display = 'none';
+            phoneInput.required = false;
+        }
+    });
+    document.getElementById('contactPhone').addEventListener('change', function() {
+        if(this.checked) {
+            emailInput.style.display = 'none';
+            emailInput.required = false;
+            phoneInput.style.display = 'block';
+            phoneInput.required = true;
+        }
+    });
+    // Enhanced sign up logic (demo only)
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const uid = document.getElementById('signup-uid').value.trim();
+        const useEmail = document.getElementById('contactEmail').checked;
+        const email = emailInput.value.trim();
+        const phone = phoneInput.value.trim();
+        const password = document.getElementById('signup-password').value;
+        const confirm = document.getElementById('signup-confirm').value;
+        const info = document.getElementById('signupInfo');
+        if (!uid || (!useEmail && !phone) || (useEmail && !email) || (!useEmail && !phone) || !password || !confirm) {
+            info.textContent = 'Please fill in all required fields.';
+            info.style.display = 'block';
+            info.style.background = 'rgba(215,17,71,0.15)';
+            info.style.color = '#ffd700';
+            return;
+        }
+        if (!useEmail && !/^\d{10}$/.test(phone)) {
+            info.textContent = 'Please enter a valid 10-digit phone number.';
+            info.style.display = 'block';
+            info.style.background = 'rgba(215,17,71,0.15)';
+            info.style.color = '#ffd700';
+            return;
+        }
+        if (password !== confirm) {
+            info.textContent = 'Passwords do not match.';
+            info.style.display = 'block';
+            info.style.background = 'rgba(215,17,71,0.15)';
+            info.style.color = '#ffd700';
+            return;
+        }
+        // Simulate sign up success
+        info.textContent = 'Account created successfully! Redirecting to sign in...';
+        info.style.display = 'block';
+        info.style.background = 'rgba(34,148,237,0.15)';
+        info.style.color = '#ffd700';
+        setTimeout(()=>{
+            window.location.href = 'signin.html';
+        }, 1200);
+    });
+    // Show transition on load
+    window.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('signupOverlay').classList.add('active');
+        document.getElementById('signupContainer').classList.add('active');
+    });
+    </script>
+</body>
+</html>

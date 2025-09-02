@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule | BABA E-SPORTS</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="schedule.css">
+    <link rel="shortcut icon" href="../logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <section class="header modern-header">
+        <div class="nave modern-nave">
+            <div class="logo modern-logo">
+                <a href="../Home.html" style="display:flex;align-items:center;gap:10px;">
+                    <img src="../logo.png" alt="BABA E-SPORTS Logo">
+                    <span class="brand-title">BABA <span class="brand-highlight">E-SPORTS</span></span>
+                </a>
+            </div>
+            <nav class="nave-list modern-nav-list" aria-label="Main Navigation">
+                <ul class="menu flex modern-menu">
+                    <li><a href="../Home.html">Home</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </section>
+    <section class="schedule-section container">
+        <div class="upcoming-heading">
+            <h2>Upcoming Tournament Schedule</h2>
+        </div>
+        <div class="schedule-list" id="scheduleList">
+            <!-- Schedule cards will be injected by JS -->
+        </div>
+        <div id="scheduleModal" class="schedule-modal" style="display:none;">
+            <div class="modal-content">
+                <span class="close-modal" id="closeModal">&times;</span>
+                <img id="modalImg" src="" alt="Tournament" class="modal-img" />
+                <h3 id="modalTitle"></h3>
+                <p id="modalDesc"></p>
+                <p id="modalDate" class="modal-date"></p>
+            </div>
+        </div>
+    </section>
+    <section class="footer-bottom">
+        <div class="footer-data flex">
+            <div class="footer-info flex">
+                <h2>BABA E-SPORTS</h2>
+                <p class="footer-slogan">Empowering Gamers. Building Champions. Connecting Communities.</p>
+                <a href="https://www.youtube.com/@babae-sports">Official YouTube Channel</a>
+                <a href="https://discord.gg/ryv827Am">Official Discord</a>
+                <a href="https://www.instagram.com/happy_feat_16/profilecard/?igsh=MXkxc2l2dWx3NzFyYg==">Official
+                    Instagram</a>
+            </div>
+        </div>
+        <div class="unique-footer-message">
+            <p>&copy; 2025 BABA E-SPORTS. All rights reserved. Designed for passionate gamers, by passionate gamers.</p>
+        </div>
+    </section>
+    <script src="schedule.js"></script>
+</body>
+
+</html>

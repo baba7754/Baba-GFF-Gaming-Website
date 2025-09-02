@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | BABA E-SPORTS</title>
+    <link rel="stylesheet" href="signup.css">
+    <link rel="shortcut icon" href="../logo.png" type="image/x-icon">
+    <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #2294ed 0%, #d71147 100%) fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+        }
+        .signin-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(20, 20, 40, 0.75);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s cubic-bezier(.77,0,.18,1);
+        }
+        .signin-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .signin-container {
+            background: rgba(0,0,0,0.92);
+            border-radius: 22px;
+            box-shadow: 0 8px 32px 0 #d7114744, 0 2px 16px 0 #2294ed44;
+            padding: 48px 36px 36px 36px;
+            max-width: 420px;
+            width: 95vw;
+            color: #fff;
+            position: fixed;
+            left: 50%; top: 50%;
+            transform: translate(-50%, -50%) scale(0.85);
+            opacity: 0;
+            transition: opacity 0.5s cubic-bezier(.77,0,.18,1), transform 0.5s cubic-bezier(.77,0,.18,1);
+            z-index: 1100;
+        }
+        .signin-container.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            animation: signinPopIn 0.6s cubic-bezier(.77,0,.18,1);
+        }
+        @keyframes signinPopIn {
+            0% { opacity: 0; transform: translate(-50%, -60%) scale(0.7); }
+            80% { opacity: 1; transform: translate(-50%, -52%) scale(1.05); }
+            100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+        .signin-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 28px;
+            letter-spacing: 1.5px;
+            text-shadow: 2px 2px 8px #00000055;
+            background: linear-gradient(90deg, #ffd700 30%, #2294ed 70%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+        .signin-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .signin-input {
+            width: 100%;
+            padding: 13px 16px;
+            border-radius: 10px;
+            border: 1.5px solid #2294ed;
+            background: rgba(255,255,255,0.10);
+            color: #fff;
+            font-size: 1.08rem;
+            transition: border 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+        .signin-input:focus {
+            border: 2px solid #ffd700;
+            box-shadow: 0 0 8px #ffd70055;
+            background: rgba(255,255,255,0.18);
+        }
+        .signin-btn {
+            width: 100%;
+            padding: 15px 0;
+            border-radius: 30px;
+            border: none;
+            background: linear-gradient(90deg, #d71147 60%, #2294ed 100%);
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 16px 0 #d7114744;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .signin-btn:hover {
+            background: linear-gradient(90deg, #2294ed 60%, #d71147 100%);
+            color: #ffd700;
+            transform: translateY(-2px) scale(1.04);
+        }
+        .signin-links {
+            margin-top: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+        .signin-links a {
+            color: #ffd700;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 1rem;
+        }
+        .signin-links a:hover {
+            color: #2294ed;
+            text-decoration: underline;
+        }
+        .signin-info {
+            margin-top: 18px;
+            color: #ffd700;
+            font-size: 1.08rem;
+            text-align: center;
+            background: rgba(34,148,237,0.10);
+            border-radius: 10px;
+            padding: 12px 8px;
+            box-shadow: 0 2px 8px #2294ed33;
+        }
+        @media (max-width: 600px) {
+            .signin-container {
+                width: 98vw;
+                padding: 18px 2vw 18px 2vw;
+            }
+            .signin-title {
+                font-size: 1.3rem;
+            }
+            .signin-input {
+                font-size: 0.98rem;
+                padding: 10px 10px;
+            }
+            .signin-btn {
+                font-size: 1rem;
+                padding: 12px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="signin-overlay" id="signinOverlay"></div>
+    <div class="signin-container" id="signinContainer">
+        <div class="signin-title">Sign In to <span style="color:#D71147;">BABA <span style="color:yellow;">E-SPORTS</span></span></div>
+        <form class="signin-form" id="signinForm" autocomplete="off">
+            <input class="signin-input" type="number" id="signin-uid" placeholder="Free Fire UID No" required autofocus>
+            <div class="signin-contact-choice">
+                <input class="signin-radio" type="radio" name="contactType" id="contactEmail" value="email" checked>
+                <label for="contactEmail">Email</label>
+                <input class="signin-radio" type="radio" name="contactType" id="contactPhone" value="phone">
+                <label for="contactPhone">Phone</label>
+            </div>
+            <input class="signin-input" type="email" id="signin-email" placeholder="Email" style="display:block;" required>
+            <input class="signin-input" type="tel" id="signin-phone" placeholder="Phone (10 digits)" pattern="[0-9]{10}" style="display:none;">
+            <input class="signin-input" type="password" id="signin-password" placeholder="Password" required>
+            <button class="signin-btn" type="submit">SIGN IN</button>
+        </form>
+        <button class="signin-btn" id="gotoSignupBtn" style="margin-top:10px;">SIGN UP</button>
+        <div class="signin-links">
+            <a href="signup.html">Don't have an account? <b style='color:#2294ed;'>Sign Up</b></a>
+            <a href="../Home.html">&larr; Back to Home</a>
+        </div>
+        <div class="signin-info" id="signinInfo" style="display:none;"></div>
+    </div>
+    <script>
+    // Show/hide email or phone input based on radio selection
+    const emailInput = document.getElementById('signin-email');
+    const phoneInput = document.getElementById('signin-phone');
+    document.getElementById('contactEmail').addEventListener('change', function() {
+        if(this.checked) {
+            emailInput.style.display = 'block';
+            emailInput.required = true;
+            phoneInput.style.display = 'none';
+            phoneInput.required = false;
+        }
+    });
+    document.getElementById('contactPhone').addEventListener('change', function() {
+        if(this.checked) {
+            emailInput.style.display = 'none';
+            emailInput.required = false;
+            phoneInput.style.display = 'block';
+            phoneInput.required = true;
+        }
+    });
+    // Enhanced sign in logic (demo only)
+    document.getElementById('signinForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const uid = document.getElementById('signin-uid').value.trim();
+        const useEmail = document.getElementById('contactEmail').checked;
+        const email = emailInput.value.trim();
+        const phone = phoneInput.value.trim();
+        const password = document.getElementById('signin-password').value;
+        const info = document.getElementById('signinInfo');
+        if (!uid || (!useEmail && !phone) || (useEmail && !email) || (!useEmail && !phone) || !password) {
+            info.textContent = 'Please fill in all required fields.';
+            info.style.display = 'block';
+            info.style.background = 'rgba(215,17,71,0.15)';
+            info.style.color = '#ffd700';
+            return;
+        }
+        if (!useEmail && !/^\d{10}$/.test(phone)) {
+            info.textContent = 'Please enter a valid 10-digit phone number.';
+            info.style.display = 'block';
+            info.style.background = 'rgba(215,17,71,0.15)';
+            info.style.color = '#ffd700';
+            return;
+        }
+        // Simulate sign in success
+        info.textContent = 'Sign in successful! Redirecting...';
+        info.style.display = 'block';
+        info.style.background = 'rgba(34,148,237,0.15)';
+        info.style.color = '#ffd700';
+        setTimeout(()=>{
+            window.location.href = '../UserProfile/profile.html';
+        }, 1200);
+    });
+    // Show transition on load
+    window.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('signinOverlay').classList.add('active');
+        document.getElementById('signinContainer').classList.add('active');
+    });
+    // SIGN UP button event
+    document.getElementById('gotoSignupBtn').addEventListener('click', function() {
+        window.location.href = 'signup.html';
+    });
+    </script>
+</body>
+</html>

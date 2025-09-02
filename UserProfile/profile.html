@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile | BABA E-SPORTS</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="shortcut icon" href="../logo.png" type="image/x-icon">
+    <!-- Google Fonts for Futuristic Look -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;700&display=swap"
+        rel="stylesheet">
+    <!-- Material Icons for UI -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <div class="profile-container">
+        <!-- Futuristic Glow Border -->
+        <div class="profile-glow"></div>
+        <div class="profile-header">
+            <div class="profile-img-wrapper">
+                <img id="profileImg" src="../logo.png" alt="User Profile Image" class="profile-img">
+                <label for="profileImgUpload" class="profile-img-edit" title="Change Profile Picture">
+                    <span class="material-icons"
+                        style="font-size: 1.5em; color: #2294ed; background: #fff; border-radius: 50%; padding: 2px; box-shadow: 0 0 8px #2294ed55; position: absolute; bottom: 6px; right: 6px; cursor: pointer;">edit</span>
+                </label>
+                <input type="file" id="profileImgUpload" accept="image/*" style="display:none;">
+            </div>
+            <div class="profile-basic">
+                <h2 id="profileName" style="font-family: 'Orbitron', 'Poppins', sans-serif; letter-spacing: 0.04em;">
+                    Player Name</h2>
+                <p id="profileUid"
+                    style="font-family: 'Orbitron', 'Poppins', sans-serif; color: #2294ed; font-size: 1.01em;">UID:
+                    123456789</p>
+                <div class="profile-badges">
+                    <span class="profile-badge" id="badgeLevel"><span class="material-icons"
+                            style="font-size:1em;vertical-align:middle;">military_tech</span> Level 10</span>
+                    <span class="profile-badge neon" id="badgeRank"><span class="material-icons"
+                            style="font-size:1em;vertical-align:middle;">stars</span> Diamond</span>
+                </div>
+            </div>
+        </div>
+        <div class="profile-details">
+            <div class="profile-info">
+                <h3><span class="material-icons" style="font-size:1.1em;vertical-align:middle;">account_box</span>
+                    Account Details</h3>
+                <ul>
+                    <li><b><span class="material-icons" style="font-size:1em;vertical-align:middle;">mail</span>
+                            Email/Phone:</b> <span id="profileContact">player@email.com</span></li>
+                    <li><b><span class="material-icons" style="font-size:1em;vertical-align:middle;">event</span>
+                            Joined:</b> <span id="profileJoined">2025-06-08</span></li>
+                    <li><b><span class="material-icons" style="font-size:1em;vertical-align:middle;">location_on</span>
+                            State:</b> <span id="profileState">Assam</span></li>
+                    <li><b><span class="material-icons" style="font-size:1em;vertical-align:middle;">map</span>
+                            District:</b> <span id="profileDistrict">Kamrup</span></li>
+                    <li><b><span class="material-icons" style="font-size:1em;vertical-align:middle;">cake</span> Date of
+                            Birth:</b> <span id="profileDob">2005-01-01</span></li>
+                </ul>
+            </div>
+            <div class="profile-stats">
+                <h3><span class="material-icons" style="font-size:1.1em;vertical-align:middle;">sports_esports</span>
+                    Esports Stats</h3>
+                <ul>
+                    <li><b><span class="material-icons" style="font-size:1em;vertical-align:middle;">emoji_events</span>
+                            Tournaments Joined:</b> <span id="profileTournaments">0</span></li>
+                    <li><b><span class="material-icons"
+                                style="font-size:1em;vertical-align:middle;">military_tech</span> Tournaments Won:</b>
+                        <span id="profileWins">0</span></li>
+                    <li><b><span class="material-icons" style="font-size:1em;vertical-align:middle;">percent</span> Win
+                            Rate:</b> <span id="profileWinRate">0%</span></li>
+                    <li><b><span class="material-icons" style="font-size:1em;vertical-align:middle;">history</span> Last
+                            Tournament:</b> <span id="profileLastTournament">-</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="profile-actions">
+            <button id="editProfileBtn" class="profile-btn"><span class="material-icons"
+                    style="font-size:1.1em;vertical-align:middle;">edit</span> Edit Profile</button>
+            <button id="logoutBtn" class="profile-btn"><span class="material-icons"
+                    style="font-size:1.1em;vertical-align:middle;">logout</span> Log Out</button>
+        </div>
+    </div>
+    <script src="profile.js"></script>
+    <style>
+        /* Futuristic Glow Border */
+        .profile-glow {
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border-radius: 32px;
+            z-index: 0;
+            pointer-events: none;
+            box-shadow: 0 0 32px 8px #2294ed88, 0 0 64px 16px #d7114788, 0 0 0 4px #ffd70044;
+            animation: glowPulse 2.5s infinite alternate;
+        }
+
+        @keyframes glowPulse {
+            0% {
+                box-shadow: 0 0 32px 8px #2294ed88, 0 0 64px 16px #d7114788, 0 0 0 4px #ffd70044;
+            }
+
+            100% {
+                box-shadow: 0 0 48px 16px #ffd700aa, 0 0 96px 32px #2294ed99, 0 0 0 8px #d7114744;
+            }
+        }
+
+        .profile-img-edit {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        /* Desktop enhancements */
+        @media (min-width: 900px) {
+            body {
+                background: linear-gradient(120deg, #1d69a3 0%, #2294ed 60%, #d71147 100%) fixed;
+            }
+
+            .profile-container {
+                max-width: 700px;
+                min-width: 600px;
+                padding: 56px 56px 40px 56px;
+                border-radius: 36px;
+                font-size: 1.13rem;
+            }
+
+            .profile-header {
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 36px;
+                margin-bottom: 36px;
+            }
+
+            .profile-img-wrapper {
+                width: 130px;
+                height: 130px;
+                min-width: 130px;
+                min-height: 130px;
+            }
+
+            .profile-basic h2 {
+                font-size: 2.2rem !important;
+            }
+
+            .profile-basic p {
+                font-size: 1.18rem !important;
+            }
+
+            .profile-details {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+                margin-bottom: 36px;
+            }
+
+            .profile-info,
+            .profile-stats {
+                padding: 28px 22px 22px 22px;
+                font-size: 1.09rem;
+            }
+
+            .profile-badges {
+                gap: 18px;
+                margin-top: 22px;
+            }
+
+            .profile-badge,
+            .profile-badge.neon {
+                font-size: 1.13rem !important;
+                padding: 8px 26px !important;
+            }
+
+            .profile-actions {
+                gap: 32px;
+                margin-top: 32px;
+            }
+
+            .profile-btn {
+                font-size: 1.18rem !important;
+                padding: 14px 44px !important;
+            }
+        }
+    </style>
+</body>
+
+</html>

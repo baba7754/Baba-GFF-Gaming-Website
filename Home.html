@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BABA E-SPORTS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <section class="header modern-header">
+        <div class="nave modern-nave" style="flex-direction: row-reverse;">
+            <div class="logo modern-logo">
+                <a href="Home.html" style="display:flex;align-items:center;gap:10px;">
+                    <img src="logo.png" alt="BABA E-SPORTS Logo">
+                    <span class="brand-title">BABA <span class="brand-highlight">E-SPORTS</span></span>
+                </a>
+            </div>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nave-list modern-nav-list" id="mainNav" aria-label="Main Navigation">
+                <ul class="menu flex modern-menu">
+                    <li><a href="#tournaments"><span class="nav-icon">🏆</span> Tournaments</a></li>
+                    <li><a href="#games"><span class="nav-icon">🎮</span> Games</a></li>
+                    <li><a href="Schedule/scedule.html"><span class="nav-icon">📅</span> Schedule</a></li>
+                    <li><a href="Products.html"><span class="nav-icon">🛒</span> Products</a></li>
+                    <li><a href="Partners.html"><span class="nav-icon">🤝</span> Partners</a></li>
+                    <li><a href="About.html"><span class="nav-icon">ℹ️</span> About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+    <section class="Intro container modern-intro beautiful-intro">
+        <div class="intro-bg-shape"></div>
+        <div class="intro-data flex">
+            <div class="intro-text">
+                <h1 class="intro-animate">Welcome to <span>BABA </span>E<span>-SPORTS</span></h1>
+                <p class="tagline-main">Your Gateway to the Ultimate Free Fire E-Sports Experience!</p>
+                <p class="tagline dynamic-tagline" id="dynamicTagline">Unleash your skills. Compete. Win. Become a legend.
+                </p>
+                <div class="intro-animated-cta" id="introAnimatedCta"></div>
+                <div class="intro-signin-cta">
+                    <a class="nav-link primary-button intro-signin-btn" href="FORM-1/signup.html">SIGN UP</a>
+                    <a class="nav-link primary-button intro-signin-btn" href="FORM-1/signin.html" style="margin-left:16px;">SIGN IN</a>
+                </div>
+            </div>
+            <div class="image-intro intro-img-animate">
+                <img src="image-3-removebg-preview.png" alt="E-Sports Hero Image">
+                <div class="intro-glow"></div>
+            </div>
+        </div>
+    </section>
+      <section class="container Winner-Section modern-winner-section">
+        <div class="winner-team intro-data flex">
+            <div class="intro-text winner-text">
+                <h1 class="winner-animate">🏆 Congratulations to Our Champions! 🏆</h1>
+                <p class="winner-desc">See the latest winners and get inspired to join the next tournament.<br><span id="winnerName" class="winner-name-highlight"></span></p>
+            </div>
+            <div class="image-intro winner-img-animate">
+                <img src="image-3-removebg-preview.png" alt="Winning Team Image">
+                <div class="winner-glow"></div>
+            </div>
+        </div>
+        <div class="confetti" id="confetti"></div>
+    </section>
+    <section class="Tournaments-List container modern-tournaments-section" id="tournaments">
+        <div class="tournaments-bg-shape"></div>
+        <h2 class="tournaments-title">🔥 Upcoming Tournaments 🔥</h2>
+        <div class="Tournaments-list flex">
+            <div class="lists-data flex">
+                <div class="lists schedule-card tournament-card" data-title="Local Tournaments" data-desc="Battle with your neighborhood's best teams and rise to the top!" data-img="Schedule/image2.jpg">
+                    <img src="Schedule/image2.jpg" alt="Local Tournaments" class="schedule-img">
+                    <h3>Local Tournaments</h3>
+                    <p>Battle with your neighborhood's best teams and rise to the top!</p>
+                    <button class="tournament-cta" data-link="FORM-1/form.html">Join Now</button>
+                </div>
+                <div class="lists schedule-card tournament-card" data-title="District Tournaments" data-desc="Represent your district and claim your spot among the elite." data-img="Schedule/image5.jpg">
+                    <img src="Schedule/image5.jpg" alt="District Tournaments" class="schedule-img">
+                    <h3>District Tournaments</h3>
+                    <p>Represent your district and claim your spot among the elite.</p>
+                    <button class="tournament-cta" data-link="FORM-1/form.html">Join Now</button>
+                </div>
+                <div class="lists schedule-card tournament-card" data-title="State Tournaments" data-desc="Challenge the best teams from across the state for ultimate glory." data-img="Schedule/image8.jpg">
+                    <img src="Schedule/image8.jpg" alt="State Tournaments" class="schedule-img">
+                    <h3>State Tournaments</h3>
+                    <p>Challenge the best teams from across the state for ultimate glory.</p>
+                    <button class="tournament-cta" data-link="FORM-1/form.html">Join Now</button>
+                </div>
+            </div>
+        </div>
+        <div id="scheduleModal" class="schedule-modal" style="display:none;">
+            <div class="modal-content">
+                <span class="close-modal" id="closeModal">&times;</span>
+                <img id="modalImg" src="" alt="Tournament" class="modal-img" />
+                <h3 id="modalTitle"></h3>
+                <p id="modalDesc"></p>
+            </div>
+        </div>
+    </section>
+    <section class="footer-bottom">
+        <div class="footer-data flex">
+            <div class="footer-info flex">
+                <h2>BABA E-SPORTS</h2>
+                <p class="footer-slogan">Empowering Gamers. Building Champions. Connecting Communities.</p>
+                <a href="https://www.youtube.com/@babae-sports">Official YouTube Channel</a>
+                <a href="https://discord.gg/ryv827Am">Official Discord</a>
+                <a href="https://www.instagram.com/happy_feat_16/profilecard/?igsh=MXkxc2l2dWx3NzFyYg==">Official
+                    Instagram</a>
+            </div>
+            <div class="our-partner flex modern-partners">
+                <h2>Our Tournament Partners</h2>
+                <div class="partner-cards flex">
+                    <a class="partner-card" href="https://www.youtube.com/@DESILIVE786" target="_blank">
+                        <img src="logo.png" alt="DX Desi Live Logo" class="partner-logo">
+                        <span>DX Desi Live</span>
+                    </a>
+                    <a class="partner-card" href="https://www.youtube.com/@PGYTLIVE" target="_blank">
+                        <img src="image-3-removebg-preview.png" alt="Pretam Gaming YT Logo" class="partner-logo">
+                        <span>Pretam Gaming YT</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="unique-footer-message">
+            <p>&copy; 2025 BABA E-SPORTS. All rights reserved. Designed for passionate gamers, by passionate gamers.</p>
+        </div>
+    </section>
+    <div class="spacer"></div>
+    <script src="intro-slider.js"></script>
+    <script src="schedule-cards.js"></script>
+    <script>
+    // Hamburger menu toggle for responsive header
+    const hamburger = document.getElementById('hamburgerBtn');
+    const nav = document.getElementById('mainNav');
+    hamburger.addEventListener('click', function() {
+        nav.classList.toggle('open');
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !expanded);
+    });
+    // Optional: close menu on nav link click (mobile UX)
+    nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            if(window.innerWidth <= 900) {
+                nav.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', false);
+            }
+        });
+    });
+    // Winner name animation
+    const winners = [
+        'Team Alpha', 'Team Phoenix', 'The Legends', 'Victory Squad', 'Elite Gamers', 'Shadow Hunters', 'Royal Kings', 'Fire Blasters'
+    ];
+    let winnerIdx = 0;
+    function showNextWinner() {
+        const el = document.getElementById('winnerName');
+        el.textContent = winners[winnerIdx];
+        el.classList.add('pop-winner');
+        setTimeout(()=>el.classList.remove('pop-winner'), 700);
+        winnerIdx = (winnerIdx + 1) % winners.length;
+    }
+    setInterval(showNextWinner, 1800);
+    showNextWinner();
+    // Simple confetti effect
+    function launchConfetti() {
+        const confetti = document.getElementById('confetti');
+        confetti.innerHTML = '';
+        for(let i=0;i<30;i++) {
+            const c = document.createElement('div');
+            c.className = 'confetti-piece';
+            c.style.left = Math.random()*100+'vw';
+            c.style.background = `hsl(${Math.random()*360},90%,60%)`;
+            c.style.animationDuration = (1.8+Math.random()*1.2)+'s';
+            confetti.appendChild(c);
+        }
+        setTimeout(()=>confetti.innerHTML='', 2500);
+    }
+    setInterval(launchConfetti, 3500);
+    launchConfetti();
+    // Dynamic animated tagline
+    const taglines = [
+        'Unleash your skills. Compete. Win. Become a legend.',
+        'Join epic tournaments and claim your glory!',
+        'Connect, play, and rise with the BABA E-SPORTS community.',
+        'Where every gamer becomes a champion.',
+        'Experience the thrill of Free Fire E-Sports!'
+    ];
+    let taglineIdx = 0;
+    function animateTagline() {
+        const el = document.getElementById('dynamicTagline');
+        el.textContent = taglines[taglineIdx];
+        el.classList.add('pop-intro-tagline');
+        setTimeout(()=>el.classList.remove('pop-intro-tagline'), 700);
+        taglineIdx = (taglineIdx + 1) % taglines.length;
+    }
+    setInterval(animateTagline, 2200);
+    animateTagline();
+    // Animated CTA (scroll down arrow)
+    const cta = document.getElementById('introAnimatedCta');
+    cta.innerHTML = `<div class='scroll-down-cta'><span>Scroll Down</span><div class='arrow-bounce'>&#8595;</div></div>`;
+    // Tournament card hover animation
+    const tournamentCards = document.querySelectorAll('.tournament-card');
+    tournamentCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.classList.add('tournament-pop');
+        });
+        card.addEventListener('mouseleave', () => {
+            card.classList.remove('tournament-pop');
+        });
+    });
+    // CTA button click
+    const ctaBtns = document.querySelectorAll('.tournament-cta');
+    ctaBtns.forEach(btn => {
+        btn.addEventListener('click', e => {
+            window.location.href = btn.getAttribute('data-link');
+        });
+    });
+    </script>
+</body>
+
+</html>
